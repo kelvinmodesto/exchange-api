@@ -12,12 +12,12 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": ["./controllers/*"],
-      "@db/*": ["./db/*"],
-      "@interfaces/*": ["./interfaces/*"],
-      "@models/*": ["./models/*"],
-      "@routes/*": ["./routes/*"],
-      "@utils/*": ["./utils/*"]
+      "@controllers/*": ["./src/controllers/*"],
+      "@db/*": ["./src/db/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@models/*": ["./src/models/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@utils/*": ["./src/utils/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
