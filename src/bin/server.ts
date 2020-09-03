@@ -1,7 +1,7 @@
 import debug from 'debug';
 import http from 'http';
 
-import app from './app';
+import app from '../app';
 
 const normalizePort = (val: any) => {
   const p = parseInt(val, 10);
@@ -12,8 +12,8 @@ const normalizePort = (val: any) => {
   return false;
 };
 
-const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+const port = normalizePort(process.env.APP_PORT || '3000');
+app.set('APP_PORT', port);
 
 const onError = (error: any) => {
   if (error.syscall !== 'listen') {

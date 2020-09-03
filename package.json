@@ -9,7 +9,7 @@
     "build": "./node_modules/.bin/tsc",
     "commit": "npx git-cz",
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "start": "node --inspect=5858 -r ts-node/register src/bin/server.ts",
     "start:watch": "./node_modules/.bin/nodemon",
     "test": "./node_modules/.bin/jest"
   },
