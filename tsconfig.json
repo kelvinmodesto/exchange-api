@@ -16,6 +16,7 @@
       "@db/*": ["./src/db/*"],
       "@interfaces/*": ["./src/interfaces/*"],
       "@models/*": ["./src/models/*"],
+      "@mocks/*": ["./src/mocks/*"],
       "@routes/*": ["./src/routes/*"],
       "@utils/*": ["./src/utils/*"]
     },
