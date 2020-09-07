@@ -1,18 +1,13 @@
 import { config } from 'dotenv';
 import fetch from 'node-fetch';
 
-const getRates = async (monetaryUnit: string) => {
+const getRates = async (monetaryUnitSrc: string, monetaryUnitDest: string) => {
   config();
-  const valuesList = ['GBP', 'BRL', 'JPY', 'EUR', 'USD'];
   const ratesByMonetaryUnit = await fetch(
-    `${
-      process.env.API_URL
-    }?base=${monetaryUnit}&symbols=${valuesList
-      .filter((el) => el.indexOf(monetaryUnit))
-      .toLocaleString()}`
+    `${process.env.API_URL}?base=${monetaryUnitSrc}&symbols=${monetaryUnitDest}`
   );
   const { rates } = await ratesByMonetaryUnit.json();
-  return rates;
+  return Object.entries(rates)[0][1] as number;
 };
 
 export default getRates;
