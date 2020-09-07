@@ -11,7 +11,8 @@
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
     "start": "node --inspect=5858 -r ts-node/register src/bin/server.ts",
     "start:watch": "./node_modules/.bin/nodemon",
-    "test": "./node_modules/.bin/jest"
+    "test": "./node_modules/.bin/jest",
+    "docs:start": "./node_modules/.bin/dredd api.apib http://localhost:1220"
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -40,6 +41,7 @@
     "@typescript-eslint/parser": "^4.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "cz-emoji": "^1.2.2",
+    "dredd": "^13.1.2",
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
