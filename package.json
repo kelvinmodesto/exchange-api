@@ -1,7 +1,6 @@
 {
   "name": "exchange-api",
   "version": "0.0.1",
-  "main": "index.js",
   "repository": "https://github.com/kelvinmodesto/exchange-api",
   "author": "Kelvin Modesto <km.modesto@gmail.com>",
   "license": "MIT",
@@ -15,7 +14,6 @@
     "docs:start": "./node_modules/.bin/dredd api.apib http://localhost:1220"
   },
   "dependencies": {
-    "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "debug": "^4.1.1",
