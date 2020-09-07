@@ -1,17 +1,25 @@
 import { Router } from 'express';
-import { config } from 'dotenv';
-import { ContextStrategy, SQLiteStrategy } from '../../db';
+import { ContextStrategy } from '../../db';
 
 const getTransactionsByUsers = (router: Router, context: ContextStrategy) => {
-  const monetaryUnitList = ['GBP', 'BRL', 'JPY', 'EUR', 'USD'];
-  config();
-  const { log, error } = console;
   router.get('/', async (req: any, res: any, next: any) => {
     try {
-      context.isConnected();
-      log('Successfully');
-    } catch (err) {
-      error('teste error');
+      const { userId } = req.query;
+      if (res.statusCode === 200) {
+        if (!userId) throw new Error('Request has no given userId');
+        const transactionsDataList = await context.read({ where: { userId } });
+        const transactionsFilteredDataList = transactionsDataList.filter(
+          (it: any) => it.dataValues.transactionIsSucceeded
+        );
+        const dataValuesList = transactionsFilteredDataList.map(
+          (it: any) => it.dataValues
+        );
+        res.send(dataValuesList);
+      } else {
+        throw new Error('Request Error');
+      }
+    } catch (error) {
+      next(error);
     }
   });
 };
