@@ -1,8 +1,12 @@
 import cookieParser from 'cookie-parser';
 import express from 'express';
+import { config } from 'dotenv';
 import httpErrors from 'http-errors';
 import morgan from 'morgan';
 
+import { transactionsRouter } from './routes';
+
+config();
 const app = express();
 
 app.use(morgan('dev'));
@@ -10,10 +14,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use('/api/v1/transactions', transactionsRouter());
 
-// catch 404 and forward to error handler
-app.use((req: any, res: any, next: any): any => next(httpErrors(404)));
+// catch 400 and forward to error handler
+app.use((req: any, res: any, next: any): any => next(httpErrors(400)));
 
 // error handler
 app.use((err: any, req: any, res: any) => {
