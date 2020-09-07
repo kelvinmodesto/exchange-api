@@ -26,10 +26,6 @@ const defineTransactionModel = (sequelize: Sequelize) => {
         type: DataTypes.REAL,
         allowNull: false,
       },
-      transactionDate: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
       srcValue: {
         type: DataTypes.REAL,
         allowNull: false,
@@ -40,7 +36,18 @@ const defineTransactionModel = (sequelize: Sequelize) => {
       },
       transactionIsSucceeded: {
         type: DataTypes.BOOLEAN,
-        allowNull: true,
+        allowNull: false,
+        defaultValue: false,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: Date.now(),
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: Date.now(),
       },
     },
     {}
