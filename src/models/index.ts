@@ -1,10 +1,8 @@
-import Transaction from './transaction';
-import User from './user';
+import defineTransactionModel from './transaction';
 
 const main = {
-  Transaction,
-  User,
+  defineTransactionModel,
 };
 
-export { main, Transaction, User };
+export { main, defineTransactionModel };
 export default main;
