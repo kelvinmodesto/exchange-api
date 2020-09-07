@@ -1,0 +1,67 @@
+# API Transactions
+
+# Group API
+
+API for a simple repository for exchanges with their userId, conversionRate, srcMonetaryUnit, destMonetaryUnit, srcValue and destValue
+
+# Group Transactions
+
+## Transactions [/api/v1/transactions]
+
+### Make Transaction [POST]
+
++ Request  Make transaction
+      + Headers
+          Accept: application/json
+          Content-Type: application/json
+      + Attributes (Transaction)
+
++ Response 200 (application/json)
+    + Attributes (NewTransaction)
+
++ Response 400 (application/json)
+    + Attributes (Error)
+
+## Transaction by id [/api/v1/transactions/:userId]
+
+### List Transactions by User [GET]
+
++ Response 200 (application/json)
+    + Attributes (array[Transaction])
+
++ Response 400 (application/json)
+    + Attributes (Error)
+
+
+# Data Structures
+
+## NewTransaction (object)
++ monetaryUnitSrc (string) - source monetary unit
++ monetaryUnitDest (string) - destination monetary unit
++ srcValue (number,decimal) - value to be converted
++ conversionRate (number,decimal) - conversion rate of source monetary unit for destiny monetary unit
++ userId (number) - user id
++ transactionId (number) - auto-generated transaction id
+
+## Transaction (object)
++ monetaryUnitSrc (string) - source monetary unit
++ monetaryUnitDest (string) - destination monetary unit
++ createdAt (string) - date of insert
++ updatedAt (string) - date of last update
++ srcValue (number,decimal) - value to be converted
++ destValue (number,decimal) - converted value
++ conversionRate (number,decimal) - conversion rate of source monetary unit for destiny monetary unit
++ userId (number) - user id
++ transactionId (number) - auto-generated transaction id
+
+## Id (object)
++ userId (number) - userId of transaction
+
+## Return (object)
+
+## Error (object)
++ code: 400 (number) - Status code
++ message (string) - Status message
+
+## Created (object)
++ result (string) - Success message
