@@ -20,8 +20,8 @@ export default class SQLiteStrategy extends ContextStrategy {
     return this.model.findAll(item);
   }
 
-  public async update(values: any, selector: any = {}) {
-    return this.model.update({ values }, { selector });
+  public async update(values: any = {}, selector: any = {}) {
+    return this.model.update(values, selector);
   }
 
   public async delete(id: string) {
