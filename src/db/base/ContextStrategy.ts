@@ -15,8 +15,8 @@ export default class ContextStrategy implements IDb {
     return this.database.read(item);
   }
 
-  public update(id: string, item: any = {}) {
-    return this.database.update(id, item);
+  public update(values: any, selector: any = {}) {
+    return this.database.update(values, selector);
   }
 
   public delete(id: string) {
